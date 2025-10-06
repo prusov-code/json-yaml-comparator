@@ -21,7 +21,7 @@ Options:
   -v --version                  Show version
   --format <fmt>                Report format [default: stylish]
 DOC;
-    public static function printDocumentation()
+    public static function handleCommandLineInput()
     {
         $params=['version'=>"Comparator v0.1\nCopyright (c) prusov-code"];
         dump(Docopt::handle(self::HELP_MESSAGE,$params));
