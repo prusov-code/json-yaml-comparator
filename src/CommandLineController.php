@@ -22,7 +22,7 @@ Options:
   --format <fmt>                Report format [default: stylish]
 DOC;
     CONST HELP_PARAMS=['version'=>"Comparator v0.1\nCopyright (c) prusov-code"];
-    public static function handleCommandLineInput():void
+    public static function handleCommandLinePrompt():void
     {
 
         $handleResult=Docopt::handle(self::HELP_MESSAGE,self::HELP_PARAMS);
@@ -32,7 +32,7 @@ DOC;
                 $file2Content=Parser::parseFile($handleResult->args['<firstFile>']);
             }
             catch (\Exception $e) {
-                dump($e->getMessage());
+                echo $e->getMessage();
                 return;
             }
             echo ("File {$handleResult->args['<firstFile>']} content:\n");

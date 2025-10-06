@@ -4,4 +4,4 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-\Hexlet\Code\CommandLineController::handleCommandLineInput();
+\Hexlet\Code\CommandLineController::handleCommandLinePrompt();
