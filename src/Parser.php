@@ -5,7 +5,7 @@ namespace Hexlet\Code;
 class Parser
 {
     public static function parseFile(string $filePath):mixed {
-        $fileContent=@file_get_contents(__DIR__.$filePath);
+        $fileContent=@file_get_contents($filePath);
         if($fileContent===false) {
             throw new \Exception("[ERROR]: Can't read file: $fileContent. Please check the file path and try again.\n");
         }
