@@ -34,7 +34,7 @@ DOC;
                 echo $e->getMessage();
                 return;
             }
-            $diff=\Hexlet\Code\Comparator::getDiff((array)$file1Content,(array)$file2Content);
+            $diff=\Hexlet\Code\Comparator::compare((array)$file1Content,(array)$file2Content);
             echo $diff;
         }
     }
