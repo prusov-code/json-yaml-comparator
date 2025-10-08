@@ -18,5 +18,8 @@
     "docopt/docopt": "^1.0",
     "symfony/var-dumper": "^7.3",
     "funct/funct": "^1.6"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^4.0"
   }
 }
