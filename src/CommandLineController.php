@@ -4,8 +4,6 @@ namespace Hexlet\Code;
 
 use Docopt;
 
-require_once __DIR__ . '/../vendor/autoload.php';
-
 class CommandLineController
 {
     private const HELP_MESSAGE = <<<DOC
