@@ -24,21 +24,18 @@ DOC;
     CONST HELP_PARAMS=['version'=>"Comparator v0.1\nCopyright (c) prusov-code"];
     public static function handleCommandLinePrompt():void
     {
-
         $handleResult=Docopt::handle(self::HELP_MESSAGE,self::HELP_PARAMS);
         if($handleResult) {
             try {
                 $file1Content=Parser::parseFile($handleResult->args['<firstFile>']);
-                $file2Content=Parser::parseFile($handleResult->args['<firstFile>']);
+                $file2Content=Parser::parseFile($handleResult->args['<secondFile>']);
             }
             catch (\Exception $e) {
                 echo $e->getMessage();
                 return;
             }
-            echo ("File {$handleResult->args['<firstFile>']} content:\n");
-            dump($file1Content);
-            echo ("File {$handleResult->args['<firstFile>']} content:\n");
-            dump($file2Content);
+            $diff=\Hexlet\Code\Comparator::getDiff((array)$file1Content,(array)$file2Content);
+            echo $diff;
         }
     }
 }
