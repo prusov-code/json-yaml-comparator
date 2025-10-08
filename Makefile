@@ -2,5 +2,5 @@ install:
 	composer install
 lint:
 	composer exec phpcs -- src/
-test:
+tests:
 	composer exec phpunit tests/
