@@ -13,3 +13,5 @@
 
 ## Basic usage of json comparator
 [![asciicast](https://asciinema.org/a/0UsCeKnszflw7JkV6zLqrH2mT.svg)](https://asciinema.org/a/0UsCeKnszflw7JkV6zLqrH2mT)
+
+Tests
