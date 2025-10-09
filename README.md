@@ -9,9 +9,8 @@
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=prusov-code_php-project-48&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=prusov-code_php-project-48)
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=prusov-code_php-project-48&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=prusov-code_php-project-48)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=prusov-code_php-project-48&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=prusov-code_php-project-48)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=prusov-code_php-project-48&metric=coverage)](https://sonarcloud.io/summary/new_code?id=prusov-code_php-project-48)
 [![Actions Status](https://github.com/prusov-code/php-project-48/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/prusov-code/php-project-48/actions)
 
 ## Basic usage of json comparator
 [![asciicast](https://asciinema.org/a/0UsCeKnszflw7JkV6zLqrH2mT.svg)](https://asciinema.org/a/0UsCeKnszflw7JkV6zLqrH2mT)
-
-Tests
