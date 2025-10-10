@@ -1,4 +1,5 @@
 ## Code quality
+[![Build](https://github.com/prusov-code/php-project-48/actions/workflows/build.yml/badge.svg)](https://github.com/prusov-code/php-project-48/actions/workflows/build.yml)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=prusov-code_php-project-48&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=prusov-code_php-project-48)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=prusov-code_php-project-48&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=prusov-code_php-project-48)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=prusov-code_php-project-48&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=prusov-code_php-project-48)
@@ -11,6 +12,7 @@
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=prusov-code_php-project-48&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=prusov-code_php-project-48)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=prusov-code_php-project-48&metric=coverage)](https://sonarcloud.io/summary/new_code?id=prusov-code_php-project-48)
 [![Actions Status](https://github.com/prusov-code/php-project-48/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/prusov-code/php-project-48/actions)
+
 
 ## Basic usage of json comparator
 [![asciicast](https://asciinema.org/a/0UsCeKnszflw7JkV6zLqrH2mT.svg)](https://asciinema.org/a/0UsCeKnszflw7JkV6zLqrH2mT)
