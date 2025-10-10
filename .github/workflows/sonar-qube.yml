@@ -6,21 +6,23 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
-  sonarqube:
-    name: SonarQube
+  build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-      - name: Setup PHP with Xdebug
+      - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.4'
           coverage: xdebug
       - name: Install dependencies with composer
         run: composer update --no-ansi --no-interaction --no-progress
-      - name: Run tests with phpunit/phpunit
+      - name: Linter
+        run: make lint
+      - name: Tests
+        run: make tests
+      - name: Test-coverage
         run: make test-coverage
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v6
