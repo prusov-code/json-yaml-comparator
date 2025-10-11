@@ -1,3 +1,4 @@
+.PHONY: install lint tests test-coverage
 install:
 	composer install
 lint:
