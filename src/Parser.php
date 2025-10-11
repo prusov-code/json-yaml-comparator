@@ -12,14 +12,12 @@ class Parser
         if ($fileContent === false) {
             throw new \Exception("[ERROR]: Can't read file: $filePath. Please check the file path and try again.\n");
         }
-        $extension=mb_strtolower(pathinfo($filePath,PATHINFO_EXTENSION));
-        if ($extension=="json") {
-            $parsedData=json_decode($fileContent,true);
-        }
-        elseif($extension=="yml" || $extension=="yaml") {
-            $parsedData=Yaml::parse($fileContent);
-        }
-        else {
+        $extension = mb_strtolower(pathinfo($filePath, PATHINFO_EXTENSION));
+        if ($extension == "json") {
+            $parsedData = json_decode($fileContent, true);
+        } elseif ($extension == "yml" || $extension == "yaml") {
+            $parsedData = Yaml::parse($fileContent);
+        } else {
             throw new \Exception("[ERROR]: Unsupported file type. Please use .json or .yml files only\n");
         }
         return $parsedData;

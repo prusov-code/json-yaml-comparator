@@ -3,6 +3,8 @@ install:
 	composer install
 lint:
 	composer exec phpcs -- src/
+fix-lint:
+	composer exec phpcbf -- src/
 tests:
 	composer exec phpunit tests/
 test-coverage:
