@@ -10,7 +10,7 @@ class Parser
     {
         $fileContent = @file_get_contents($filePath);
         if ($fileContent === false) {
-            throw new \Exception("[ERROR]: Can't read file: $filePath. Please check the file path and try again.\n");
+            throw new \UnexpectedValueException("[ERROR]: Can't read file: $filePath. Please check the file path and try again.\n");
         }
         $extension = mb_strtolower(pathinfo($filePath, PATHINFO_EXTENSION));
         if ($extension == "json") {
@@ -18,7 +18,7 @@ class Parser
         } elseif ($extension == "yml" || $extension == "yaml") {
             $parsedData = Yaml::parse($fileContent);
         } else {
-            throw new \Exception("[ERROR]: Unsupported file type. Please use .json or .yml files only\n");
+            throw new \UnexpectedValueException("[ERROR]: Unsupported file type. Please use .json or .yml files only\n");
         }
         return $parsedData;
     }
