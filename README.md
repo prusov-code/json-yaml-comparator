@@ -16,3 +16,6 @@
 
 ## Basic usage of json comparator
 [![asciicast](https://asciinema.org/a/0UsCeKnszflw7JkV6zLqrH2mT.svg)](https://asciinema.org/a/0UsCeKnszflw7JkV6zLqrH2mT)
+
+## Basic usage of yaml comparator
+[![asciicast](https://asciinema.org/a/7NVcXPVTXZdNbmm6ig4ehpqt0.svg)](https://asciinema.org/a/7NVcXPVTXZdNbmm6ig4ehpqt0)
