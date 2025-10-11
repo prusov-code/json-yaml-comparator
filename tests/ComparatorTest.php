@@ -11,7 +11,8 @@ class ComparatorTest extends TestCase
     {
         return [
             'JSON files comparison: '=>['tests/fixtures/file1.json','tests/fixtures/file2.json','/fixtures/comparation_one_result.txt'],
-            'YAML files comparison: '=>['tests/fixtures/file1.yml','tests/fixtures/file2.yml','/fixtures/comparation_one_result.txt']
+            'YAML files comparison: '=>['tests/fixtures/file1.yml','tests/fixtures/file2.yml','/fixtures/comparation_one_result.txt'],
+            'JSON nested files comparison: '=>['tests/fixtures/file1_nested.json','tests/fixtures/file2_nested.json','/fixtures/comparation_nested_result.txt'],
         ];
     }
     #[DataProvider('compareProvider')]
