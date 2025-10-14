@@ -11,8 +11,8 @@ class ComparatorTest extends TestCase
     public static function compareProvider(): array
     {
         return [
-            'JSON files diff generation: '=>['tests/fixtures/file1_nested.json','tests/fixtures/file2_nested.json','/fixtures/comparation_result_stylish.json'],
-            'YAML files diff generation: '=>['tests/fixtures/file1_nested.yml','tests/fixtures/file2_nested.yml','/fixtures/comparation_result_stylish.json'],
+            'JSON files diff generation: '=>['tests/fixtures/file1_nested.json','tests/fixtures/file2_nested.json','/fixtures/comparation_result.json'],
+            'YAML files diff generation: '=>['tests/fixtures/file1_nested.yml','tests/fixtures/file2_nested.yml','/fixtures/comparation_result.json'],
         ];
     }
     #[DataProvider('compareProvider')]
