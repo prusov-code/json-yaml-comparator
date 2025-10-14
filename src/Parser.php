@@ -9,10 +9,12 @@ class Parser
     public static function parseFile(string $filePath): mixed
     {
         $fileContent = @file_get_contents($filePath);
+
         if ($fileContent === false) {
             throw new \UnexpectedValueException("[ERROR]: Can't read file: $filePath." .
                 "Please check the file path and try again.\n");
         }
+
         $extension = mb_strtolower(pathinfo($filePath, PATHINFO_EXTENSION));
         if ($extension == "json") {
             $parsedData = json_decode($fileContent, true);
@@ -22,6 +24,7 @@ class Parser
             throw new \UnexpectedValueException("[ERROR]: Unsupported file type." .
                 "Please use .json or .yml files only\n");
         }
+
         return $parsedData;
     }
 }

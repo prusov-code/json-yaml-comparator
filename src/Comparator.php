@@ -6,33 +6,37 @@ use function Funct\Collection\sortBy;
 
 class Comparator
 {
-    public static function compare(array $array1, array $array2): string
+    public static function compare(array $array1, array $array2, int $spacesCount = 1): array
     {
         $mergedKeys = array_unique(array_merge(array_keys($array1), array_keys($array2)));
         $sortedKeys = sortBy($mergedKeys, fn($item)=>$item);
-        $resultString = '';
+        $diff = [];
         foreach ($sortedKeys as $key) {
-            $isInArray1 = isset($array1[$key]);
-            $isInArray2 = isset($array2[$key]);
-            $value1 = $array1[$key] ?? '';
-            $value2 = $array2[$key] ?? '';
+            $isInArray1 = array_key_exists($key, $array1);
+            $isInArray2 = array_key_exists($key, $array2);
+            $value1 = $array1[$key] ?? null;
+            $value2 = $array2[$key] ?? null;
+            if (is_array($value1) && is_array($value2)) {
+                 $diff[$key] = self::compare($value1, $value2, $spacesCount);
+                 continue;
+            }
             $value1 = self::stringifyValue($value1);
             $value2 = self::stringifyValue($value2);
             if ($isInArray1 && $isInArray2) {
                 if ($value1 === $value2) {
-                    $resultString .= "    $key: $value1\n";
+                    $diff[$key] = ['state' => 'correct','value' => $value1];
                 } else {
-                    $resultString .= "  - $key: $value1\n  + $key: $value2\n";
+                    $diff[$key] = ['state' => 'changed','prevValue' => $value1, 'newValue' => $value2];
                 }
             } elseif ($isInArray1) {
-                $resultString .= "  - $key: $value1\n";
+                $diff[$key] = ['state' => 'removed','value' => $value1];
             } else {
-                $resultString .= "  + $key: $value2\n";
+                $diff[$key] = ['state' => 'added','value' => $value2];
             }
         }
-        return "{\n$resultString}\n";
+        return $diff;
     }
-    private static function stringifyValue(mixed $value): string
+    private static function stringifyValue(mixed $value)
     {
         if (is_bool($value)) {
             return $value ? 'true' : 'false';

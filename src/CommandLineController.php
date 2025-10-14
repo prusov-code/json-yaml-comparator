@@ -3,6 +3,9 @@
 namespace Hexlet\Code;
 
 use Docopt;
+use Hexlet\Code\Formatter;
+use Hexlet\Code\Parser;
+use Hexlet\Code\Comparator;
 
 class CommandLineController
 {
@@ -19,7 +22,7 @@ Options:
   -v --version                  Show version
   --format <fmt>                Report format [default: stylish]
 DOC;
-    private const HELP_PARAMS = ['version' => "Comparator v0.1\nCopyright (c) prusov-code"];
+    private const array HELP_PARAMS = ['version' => "Comparator v0.1\nCopyright (c) prusov-code"];
     public static function handleCommandLinePrompt(): void
     {
         $handleResult = Docopt::handle(self::HELP_MESSAGE, self::HELP_PARAMS);
@@ -31,8 +34,14 @@ DOC;
                 echo $e->getMessage();
                 return;
             }
-            $diff = \Hexlet\Code\Comparator::compare((array)$file1Content, (array)$file2Content);
-            echo $diff;
+            $diff = Comparator::compare((array)$file1Content, (array)$file2Content);
+            $outputFormat = $handleResult->args['--format'];
+            switch ($outputFormat) {
+                default:
+                    $formattedDiff = Formatter::formatDiffStylish($diff);
+                    break;
+            }
+            echo $formattedDiff;
         }
     }
 }
