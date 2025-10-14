@@ -21,7 +21,7 @@ class FormatterTest extends TestCase
         $file1=Parser::parseFile($file1Path);
         $file2=Parser::parseFile($file2Path);
         $diff=Comparator::compare($file1, $file2);
-        $formattedDiff=Formatter::formatDiffStylish($diff);
+        $formattedDiff=Formatter::formatDiff($diff,'stylish');
         $this->assertStringEqualsFile(__DIR__.$resultFilePath,$formattedDiff);
     }
 }

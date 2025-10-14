@@ -36,11 +36,7 @@ DOC;
             }
             $diff = Comparator::compare((array)$file1Content, (array)$file2Content);
             $outputFormat = $handleResult->args['--format'];
-            switch ($outputFormat) {
-                default:
-                    $formattedDiff = Formatter::formatDiffStylish($diff);
-                    break;
-            }
+            $formattedDiff = Formatter::formatDiff($diff, $outputFormat);
             echo $formattedDiff;
         }
     }
