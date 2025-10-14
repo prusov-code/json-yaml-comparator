@@ -4,23 +4,23 @@ require_once __DIR__."/../vendor/autoload.php";
 use PhpUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Hexlet\Code\Parser;
+use Hexlet\Code\Comparator;
 
 class ComparatorTest extends TestCase
 {
     public static function compareProvider(): array
     {
         return [
-            'JSON files comparison: '=>['tests/fixtures/file1.json','tests/fixtures/file2.json','/fixtures/comparation_one_result.txt'],
-            'YAML files comparison: '=>['tests/fixtures/file1.yml','tests/fixtures/file2.yml','/fixtures/comparation_one_result.txt'],
-            'JSON nested files comparison: '=>['tests/fixtures/file1_nested.json','tests/fixtures/file2_nested.json','/fixtures/comparation_nested_result.txt'],
-            'YAML nested files comparison: '=>['tests/fixtures/file1_nested.yml','tests/fixtures/file2_nested.yml','/fixtures/comparation_nested_result.txt'],
+            'JSON files diff generation: '=>['tests/fixtures/file1_nested.json','tests/fixtures/file2_nested.json','/fixtures/comparation_result.json'],
+            'YAML files diff generation: '=>['tests/fixtures/file1_nested.yml','tests/fixtures/file2_nested.yml','/fixtures/comparation_result.json'],
         ];
     }
     #[DataProvider('compareProvider')]
     public function testCompare(string $file1Path,string $file2Path, string $resultFilePath):void {
         $file1=Parser::parseFile($file1Path);
         $file2=Parser::parseFile($file2Path);
-        $diff=\Hexlet\Code\Comparator::compare($file1, $file2);
-        $this->assertStringEqualsFile(__DIR__.$resultFilePath,$diff);
+        $diff=Comparator::compare($file1, $file2);
+        $comparationCorrectResult = json_decode(file_get_contents(__DIR__ . $resultFilePath),true);
+        $this->assertEquals($comparationCorrectResult,$diff);
     }
 }
