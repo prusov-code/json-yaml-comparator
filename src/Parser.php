@@ -1,6 +1,6 @@
 <?php
 
-namespace Hexlet\Code;
+namespace PrusovCode\JsonYamlComparator;
 
 use Symfony\Component\Yaml\Yaml;
 

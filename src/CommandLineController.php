@@ -1,11 +1,11 @@
 <?php
 
-namespace Hexlet\Code;
+namespace PrusovCode\JsonYamlComparator;
 
 use Docopt;
-use Hexlet\Code\Formatter;
-use Hexlet\Code\Parser;
-use Hexlet\Code\Comparator;
+use PrusovCode\JsonYamlComparator\Formatter;
+use PrusovCode\JsonYamlComparator\Parser;
+use PrusovCode\JsonYamlComparator\Comparator;
 
 class CommandLineController
 {

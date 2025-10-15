@@ -1,11 +1,11 @@
 <?php
 
-namespace Hexlet\Code\Tests;
+namespace PrusovCode\JsonYamlComparator\Tests;
 
 use PhpUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\DataProvider;
-use Hexlet\Code\Parser;
-use Hexlet\Code\Comparator;
+use PrusovCode\JsonYamlComparator\Parser;
+use PrusovCode\JsonYamlComparator\Comparator;
 
 class ComparatorTest extends TestCase
 {

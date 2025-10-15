@@ -1,6 +1,6 @@
 <?php
 
-namespace Hexlet\Code\Formatters;
+namespace PrusovCode\JsonYamlComparator\Formatters;
 
 class JsonFormatter
 {

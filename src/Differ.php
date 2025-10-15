@@ -1,10 +1,10 @@
 <?php
 
-namespace Differ\Differ;
+namespace PrusovCode\JsonYamlComparator;
 
-use Hexlet\Code\Comparator;
-use Hexlet\Code\Formatter;
-use Hexlet\Code\Parser;
+use PrusovCode\JsonYamlComparator\Comparator;
+use PrusovCode\JsonYamlComparator\Formatter;
+use PrusovCode\JsonYamlComparator\Parser;
 
 function genDiff(string $pathToFile1, string $pathToFile2, string $format = 'stylish'): string|false
 {

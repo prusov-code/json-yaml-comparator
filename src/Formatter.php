@@ -1,10 +1,10 @@
 <?php
 
-namespace Hexlet\Code;
+namespace PrusovCode\JsonYamlComparator;
 
-use Hexlet\Code\Formatters\StylishFormatter;
-use Hexlet\Code\Formatters\PlainFormatter;
-use Hexlet\Code\Formatters\JsonFormatter;
+use PrusovCode\JsonYamlComparator\Formatters\StylishFormatter;
+use PrusovCode\JsonYamlComparator\Formatters\PlainFormatter;
+use PrusovCode\JsonYamlComparator\Formatters\JsonFormatter;
 
 class Formatter
 {

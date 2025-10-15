@@ -2,7 +2,8 @@
   "name": "hexlet/code",
   "autoload": {
     "psr-4": {
-      "Hexlet\\Code\\": "src/"
+      "PrusovCode\\JsonYamlComparator\\": "src/",
+      "PrusovCode\\JsonYamlComparator\\Tests\\": "tests/"
     },
     "files": [
       "src/Differ.php"

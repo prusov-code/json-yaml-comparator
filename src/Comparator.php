@@ -1,6 +1,6 @@
 <?php
 
-namespace Hexlet\Code;
+namespace PrusovCode\JsonYamlComparator;
 
 use function Funct\Collection\sortBy;
 

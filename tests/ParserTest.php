@@ -1,6 +1,6 @@
 <?php
 
-namespace Hexlet\Code\Tests;
+namespace PrusovCode\JsonYamlComparator\Tests;
 
 use PHPUnit\Framework\TestCase;
 
@@ -8,7 +8,7 @@ class ParserTest extends TestCase
 {
     public function testParse()
     {
-        $parser = new \Hexlet\Code\Parser();
+        $parser = new \PrusovCode\JsonYamlComparator\Parser();
         $this->expectException(\UnexpectedValueException::class);
         $parser::parseFile('fakeFile.yml');
         $this->expectException(\UnexpectedValueException::class);
