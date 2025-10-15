@@ -2,9 +2,9 @@
 install:
 	composer install
 lint:
-	composer exec phpcs -- src/
+	composer exec phpcs -- src/ tests/ bin/
 fix-lint:
-	composer exec phpcbf -- src/
+	composer exec phpcbf -- src/ tests/ bin/
 tests:
 	composer exec phpunit tests/
 test-coverage:
