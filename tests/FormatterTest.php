@@ -12,16 +12,24 @@ class FormatterTest extends TestCase
     public static function formatterProvider(): array
     {
         return [
-            'JSON files diff formatting: '=>['tests/fixtures/file1_nested.json','tests/fixtures/file2_nested.json','/fixtures/formatting_result.txt'],
-            'YAML files diff formatting: '=>['tests/fixtures/file1_nested.yml','tests/fixtures/file2_nested.yml','/fixtures/formatting_result.txt'],
+            'JSON files diff: '=>['tests/fixtures/file1_nested.json','tests/fixtures/file2_nested.json'],
+            'YAML files diff: '=>['tests/fixtures/file1_nested.yml','tests/fixtures/file2_nested.yml'],
         ];
     }
-    #[DataProvider('formatterProvider')]
-    public function testFormatDiff(string $file1Path,string $file2Path, string $resultFilePath):void {
+    public static function getDiff(string $file1Path,string $file2Path) {
         $file1=Parser::parseFile($file1Path);
         $file2=Parser::parseFile($file2Path);
-        $diff=Comparator::compare($file1, $file2);
-        $formattedDiff=Formatter::formatDiff($diff,'stylish');
-        $this->assertStringEqualsFile(__DIR__.$resultFilePath,$formattedDiff);
+        return Comparator::compare($file1, $file2);
+    }
+    #[DataProvider('formatterProvider')]
+    public function testStylishFormat(string $file1Path,string $file2Path):void {
+        $formattedDiff=Formatter::formatDiff(self::getDiff($file1Path,$file2Path),'stylish');
+        $this->assertStringEqualsFile(__DIR__.'/fixtures/stylish_formatting_result.txt',$formattedDiff);
+    }
+    #[DataProvider('formatterProvider')]
+    public function testPlainFormat(string $file1Path,string $file2Path):void
+    {
+        $formattedDiff=Formatter::formatDiff(self::getDiff($file1Path,$file2Path),'plain');
+        $this->assertStringEqualsFile(__DIR__.'/fixtures/plain_formatting_result.txt',$formattedDiff);
     }
 }
