@@ -4,6 +4,7 @@ namespace Hexlet\Code;
 
 use Hexlet\Code\Formatters\StylishFormatter;
 use Hexlet\Code\Formatters\PlainFormatter;
+use Hexlet\Code\Formatters\JsonFormatter;
 
 class Formatter
 {
@@ -12,9 +13,11 @@ class Formatter
         $outputFormat = trim(mb_strtolower($outputFormat));
         switch ($outputFormat) {
             case 'plain':
-                return PlainFormatter::formatDiffPlain($diff);
+                return PlainFormatter::formatDiffToPlain($diff);
+            case 'json':
+                return JsonFormatter::formatDiffToJson($diff);
             default:
-                return StylishFormatter::formatDiffStylish($diff);
+                return StylishFormatter::formatDiffToStylish($diff);
         }
     }
 }
