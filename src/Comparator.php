@@ -36,7 +36,7 @@ class Comparator
         }
         return $diff;
     }
-    private static function stringifyValue(mixed $value)
+    private static function stringifyValue(mixed $value): mixed
     {
         if (is_bool($value)) {
             return $value ? 'true' : 'false';

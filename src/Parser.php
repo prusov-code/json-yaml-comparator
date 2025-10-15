@@ -16,9 +16,9 @@ class Parser
         }
 
         $extension = mb_strtolower(pathinfo($filePath, PATHINFO_EXTENSION));
-        if ($extension == "json") {
+        if ($extension === "json") {
             $parsedData = json_decode($fileContent, true);
-        } elseif ($extension == "yml" || $extension == "yaml") {
+        } elseif ($extension === "yml" || $extension === "yaml") {
             $parsedData = Yaml::parse($fileContent);
         } else {
             throw new \UnexpectedValueException("[ERROR]: Unsupported file type." .

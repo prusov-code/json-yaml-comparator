@@ -26,17 +26,15 @@ DOC;
     public static function genDiff(): void
     {
         $handleResult = Docopt::handle(self::HELP_MESSAGE, self::HELP_PARAMS);
-        if ($handleResult) {
-            try {
-                $file1Content = Parser::parseFile($handleResult->args['<firstFile>']);
-                $file2Content = Parser::parseFile($handleResult->args['<secondFile>']);
-            } catch (\Exception $e) {
-                echo $e->getMessage();
-                return;
-            }
-            $diff = Comparator::compare((array)$file1Content, (array)$file2Content);
-            $outputFormat = $handleResult->args['--format'];
-            echo Formatter::formatDiff($diff, $outputFormat);
+        try {
+            $file1Content = Parser::parseFile($handleResult->args['<firstFile>']);
+            $file2Content = Parser::parseFile($handleResult->args['<secondFile>']);
+        } catch (\Exception $e) {
+            echo $e->getMessage();
+            return;
         }
+        $diff = Comparator::compare((array)$file1Content, (array)$file2Content);
+        $outputFormat = $handleResult->args['--format'];
+        echo Formatter::formatDiff($diff, $outputFormat);
     }
 }

@@ -14,7 +14,7 @@ class StylishFormatter
             if (isset($value['value']) && is_array($value['value'])) {
                 $state = $spacesStr;
                 if (isset($value['state'])) {
-                    $state = $value['state'] == 'added' ? '+' : '-';
+                    $state = $value['state'] === 'added' ? '+' : '-';
                     $state = $spacesForSignedElements . $state;
                 }
                 $childArray = self::formatDiffToStylish($value['value'], $enclosure + 1);
@@ -24,7 +24,7 @@ class StylishFormatter
                 $formattedDiff .= $spacesStr . "$key: {\n" . $childArray . $spacesStr . "}\n";
             } elseif (!isset($value['state'])) {
                 $formattedDiff .= "{$spacesStr}$key: $value\n";
-            } elseif ($value['state'] == 'changed') {
+            } elseif ($value['state'] === 'changed') {
                 if (is_array($value['prevValue'])) {
                     $childArray = self::formatDiffToStylish($value['prevValue'], $enclosure + 1);
                     $formattedDiff .= $spacesForSignedElements . "- $key: {\n" . $childArray . $spacesStr . "}\n";
@@ -37,11 +37,11 @@ class StylishFormatter
                 } else {
                     $formattedDiff .= "$spacesForSignedElements+ $key: {$value['newValue']}\n";
                 }
-            } elseif ($value['state'] == 'correct') {
+            } elseif ($value['state'] === 'correct') {
                 $formattedDiff .= "{$spacesStr}$key: {$value['value']}\n";
-            } elseif ($value['state'] == 'added') {
+            } elseif ($value['state'] === 'added') {
                 $formattedDiff .= $spacesForSignedElements . '+ ' . $key . ': ' . $value['value'] . "\n";
-            } elseif ($value['state'] == 'removed') {
+            } elseif ($value['state'] === 'removed') {
                 $formattedDiff .= $spacesForSignedElements . '- ' . $key . ': ' . $value['value'] . "\n";
             }
         }
