@@ -5,7 +5,7 @@ namespace Hexlet\Code\Formatters;
 class StylishFormatter
 {
     private const int SPACES_IN_INDENT = 4;
-    public static function formatDiffStylish(array $diff, int $enclosure = 1): string
+    public static function formatDiffToStylish(array $diff, int $enclosure = 1): string
     {
         $formattedDiff = '';
         foreach ($diff as $key => $value) {
@@ -17,22 +17,22 @@ class StylishFormatter
                     $state = $value['state'] == 'added' ? '+' : '-';
                     $state = $spacesForSignedElements . $state;
                 }
-                $childArray = self::formatDiffStylish($value['value'], $enclosure + 1);
+                $childArray = self::formatDiffToStylish($value['value'], $enclosure + 1);
                 $formattedDiff .= "$state $key: {\n" . $childArray . $spacesStr . "}\n";
             } elseif (!isset($value['state']) && is_array($value)) {
-                $childArray = self::formatDiffStylish($value, $enclosure + 1);
+                $childArray = self::formatDiffToStylish($value, $enclosure + 1);
                 $formattedDiff .= $spacesStr . "$key: {\n" . $childArray . $spacesStr . "}\n";
             } elseif (!isset($value['state'])) {
                 $formattedDiff .= "{$spacesStr}$key: $value\n";
             } elseif ($value['state'] == 'changed') {
                 if (is_array($value['prevValue'])) {
-                    $childArray = self::formatDiffStylish($value['prevValue'], $enclosure + 1);
+                    $childArray = self::formatDiffToStylish($value['prevValue'], $enclosure + 1);
                     $formattedDiff .= $spacesForSignedElements . "- $key: {\n" . $childArray . $spacesStr . "}\n";
                 } else {
                     $formattedDiff .= $spacesForSignedElements . '- ' . $key . ': ' . $value['prevValue'] . "\n";
                 }
                 if (is_array($value['newValue'])) {
-                    $childArray = self::formatDiffStylish($value['newValue'], $enclosure + 1);
+                    $childArray = self::formatDiffToStylish($value['newValue'], $enclosure + 1);
                     $formattedDiff .= $spacesForSignedElements . "+ $key: {\n" . $childArray . $spacesStr . "}\n";
                 } else {
                     $formattedDiff .= "$spacesForSignedElements+ $key: {$value['newValue']}\n";
