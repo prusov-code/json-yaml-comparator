@@ -32,4 +32,10 @@ class FormatterTest extends TestCase
         $formattedDiff=Formatter::formatDiff(self::getDiff($file1Path,$file2Path),'plain');
         $this->assertStringEqualsFile(__DIR__.'/fixtures/plain_formatting_result.txt',$formattedDiff);
     }
+    #[DataProvider('formatterProvider')]
+    public function testJsonFormat(string $file1Path,string $file2Path):void
+    {
+        $formattedDiff=Formatter::formatDiff(self::getDiff($file1Path,$file2Path),'json');
+        $this->assertStringEqualsFile(__DIR__.'/fixtures/json_formatting_result.txt',$formattedDiff);
+    }
 }
