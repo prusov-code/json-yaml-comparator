@@ -16,5 +16,6 @@ function genDiff($pathToFile1, $pathToFile2, string $format = 'stylish')
         return;
     }
     $diff = Comparator::compare((array)$file1Content, (array)$file2Content);
-    return Formatter::formatDiff($diff, $format);;
+    return Formatter::formatDiff($diff, $format);
+    ;
 }
