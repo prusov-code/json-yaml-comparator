@@ -4,8 +4,7 @@ namespace Hexlet\Code\Formatters;
 
 class PlainFormatter
 {
-    private const int SPACES_IN_INDENT = 4;
-    public static function formatDiffPlain(array $diff, int $enclosure = 1, string $fullPath = ''): string
+    public static function formatDiffToPlain(array $diff, int $enclosure = 1, string $fullPath = ''): string
     {
         $formattedDiff = '';
         foreach ($diff as $key => $value) {
@@ -15,10 +14,10 @@ class PlainFormatter
                     $status = $value['state'] == 'added' ? 'was added with value: [complex value]' : 'was removed';
                     $formattedDiff .= "Property '$currentFullPath' $status\n";
                 } else {
-                    $formattedDiff .= self::formatDiffPlain($value['value'], $enclosure + 1, $currentFullPath);
+                    $formattedDiff .= self::formatDiffToPlain($value['value'], $enclosure + 1, $currentFullPath);
                 }
             } elseif (!isset($value['state']) && is_array($value)) {
-                $formattedDiff .= self::formatDiffPlain($value, $enclosure + 1, $currentFullPath);
+                $formattedDiff .= self::formatDiffToPlain($value, $enclosure + 1, $currentFullPath);
             } elseif (!isset($value['state'])) {
                 continue;
             } elseif ($value['state'] == 'changed') {
