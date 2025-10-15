@@ -6,7 +6,7 @@ use Hexlet\Code\Comparator;
 use Hexlet\Code\Formatter;
 use Hexlet\Code\Parser;
 
-function genDiff(string $pathToFile1, string $pathToFile2, string $format = 'stylish'): string
+function genDiff(string $pathToFile1, string $pathToFile2, string $format = 'stylish'): string|false
 {
     try {
         $file1Content = Parser::parseFile($pathToFile1);
