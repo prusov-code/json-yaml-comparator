@@ -4,7 +4,7 @@ namespace PrusovCode\JsonYamlComparator\Tests;
 
 use PrusovCode\JsonYamlComparator\Formatter;
 use PrusovCode\JsonYamlComparator\Parser;
-use PrusovCode\JsonYamlComparator\Comparator;
+use PrusovCode\JsonYamlComparator\Differ;
 use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\DataProvider;
 
@@ -21,7 +21,7 @@ class FormatterTest extends TestCase
     {
         $file1 = Parser::parseFile($file1Path);
         $file2 = Parser::parseFile($file2Path);
-        return Comparator::compare($file1, $file2);
+        return Differ::genDiff($file1, $file2);
     }
     #[DataProvider('formatterProvider')]
     public function testStylishFormat(string $file1Path, string $file2Path): void

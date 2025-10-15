@@ -5,7 +5,8 @@ namespace PrusovCode\JsonYamlComparator;
 use Docopt;
 use PrusovCode\JsonYamlComparator\Formatter;
 use PrusovCode\JsonYamlComparator\Parser;
-use PrusovCode\JsonYamlComparator\Comparator;
+use PrusovCode\JsonYamlComparator\Differ;
+use function PrusovCode\JsonYamlComparator\compare;
 
 class CommandLineController
 {
@@ -13,28 +14,22 @@ class CommandLineController
 Generate diff
 
 Usage:
-  gendiff (-h|--help)
-  gendiff (-v|--version)
-  gendiff [--format <fmt>] <firstFile> <secondFile>
+  compare (-h|--help)
+  compare (-v|--version)
+  compare [--format <fmt>] <firstFile> <secondFile>
 
 Options:
   -h --help                     Show this screen
   -v --version                  Show version
   --format <fmt>                Report format [default: stylish]
 DOC;
-    private const array HELP_PARAMS = ['version' => "Comparator v0.1\nCopyright (c) prusov-code"];
-    public static function genDiff(): void
+    private const array HELP_PARAMS = ['version' => "Differ v0.1\nCopyright (c) prusov-code"];
+    public static function handlePrompt(): void
     {
         $handleResult = Docopt::handle(self::HELP_MESSAGE, self::HELP_PARAMS);
-        try {
-            $file1Content = Parser::parseFile($handleResult->args['<firstFile>']);
-            $file2Content = Parser::parseFile($handleResult->args['<secondFile>']);
-        } catch (\Exception $e) {
-            echo $e->getMessage();
-            return;
-        }
-        $diff = Comparator::compare((array)$file1Content, (array)$file2Content);
+        $pathToFile1=$handleResult->args['<firstFile>'];
+        $pathToFile2=$handleResult->args['<secondFile>'];
         $outputFormat = $handleResult->args['--format'];
-        echo Formatter::formatDiff($diff, $outputFormat);
+        echo \PrusovCode\JsonYamlComparator\compare($pathToFile1,$pathToFile2, $outputFormat);
     }
 }

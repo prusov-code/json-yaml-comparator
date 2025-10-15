@@ -5,7 +5,7 @@ namespace PrusovCode\JsonYamlComparator\Tests;
 use PhpUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PrusovCode\JsonYamlComparator\Parser;
-use PrusovCode\JsonYamlComparator\Comparator;
+use PrusovCode\JsonYamlComparator\Differ;
 
 class ComparatorTest extends TestCase
 {
@@ -27,7 +27,7 @@ class ComparatorTest extends TestCase
     {
         $file1 = Parser::parseFile($file1Path);
         $file2 = Parser::parseFile($file2Path);
-        $diff = Comparator::compare($file1, $file2);
+        $diff = Differ::genDiff($file1, $file2);
         $comparationCorrectResult = json_decode(file_get_contents(__DIR__ . $resultFilePath), true);
         $this->assertEquals($comparationCorrectResult, $diff);
     }

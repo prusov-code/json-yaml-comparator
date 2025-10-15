@@ -6,11 +6,11 @@
       "PrusovCode\\JsonYamlComparator\\Tests\\": "tests/"
     },
     "files": [
-      "src/Differ.php"
+      "src/Comparator.php"
     ]
   },
   "bin": [
-    "bin/gendiff"
+    "bin/compare"
   ],
   "authors": [
     {
