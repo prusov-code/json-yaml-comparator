@@ -6,6 +6,7 @@ use Docopt;
 use PrusovCode\JsonYamlComparator\Formatter;
 use PrusovCode\JsonYamlComparator\Parser;
 use PrusovCode\JsonYamlComparator\Differ;
+
 use function PrusovCode\JsonYamlComparator\compare;
 
 class CommandLineController
@@ -27,9 +28,9 @@ DOC;
     public static function handlePrompt(): void
     {
         $handleResult = Docopt::handle(self::HELP_MESSAGE, self::HELP_PARAMS);
-        $pathToFile1=$handleResult->args['<firstFile>'];
-        $pathToFile2=$handleResult->args['<secondFile>'];
+        $pathToFile1 = $handleResult->args['<firstFile>'];
+        $pathToFile2 = $handleResult->args['<secondFile>'];
         $outputFormat = $handleResult->args['--format'];
-        echo \PrusovCode\JsonYamlComparator\compare($pathToFile1,$pathToFile2, $outputFormat);
+        echo \PrusovCode\JsonYamlComparator\compare($pathToFile1, $pathToFile2, $outputFormat);
     }
 }
