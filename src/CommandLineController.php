@@ -23,7 +23,7 @@ Options:
   --format <fmt>                Report format [default: stylish]
 DOC;
     private const array HELP_PARAMS = ['version' => "Comparator v0.1\nCopyright (c) prusov-code"];
-    public static function handleCommandLinePrompt(): void
+    public static function genDiff(): void
     {
         $handleResult = Docopt::handle(self::HELP_MESSAGE, self::HELP_PARAMS);
         if ($handleResult) {
