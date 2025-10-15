@@ -1,3 +1,8 @@
+# JSON-YAML-comparator
+
+## About project
+A powerful PHP library and command-line utility for comparing JSON and YAML files with multiple output formats.
+
 ## Code quality
 [![Build](https://github.com/prusov-code/php-project-48/actions/workflows/build.yml/badge.svg)](https://github.com/prusov-code/php-project-48/actions/workflows/build.yml)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=prusov-code_php-project-48&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=prusov-code_php-project-48)
@@ -14,8 +19,48 @@
 [![Actions Status](https://github.com/prusov-code/php-project-48/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/prusov-code/php-project-48/actions)
 
 
-## Basic usage of json comparator
-[![asciicast](https://asciinema.org/a/0UsCeKnszflw7JkV6zLqrH2mT.svg)](https://asciinema.org/a/0UsCeKnszflw7JkV6zLqrH2mT)
+## Prerequisites
+- Linux, Macos, WSL
+- PHP >= 8.2.0
+- Composer >= 2.8.5
+- Make
+- Git
 
-## Basic usage of yaml comparator
-[![asciicast](https://asciinema.org/a/7NVcXPVTXZdNbmm6ig4ehpqt0.svg)](https://asciinema.org/a/7NVcXPVTXZdNbmm6ig4ehpqt0)
+## Installation
+### Composer
+```bash
+$ composer require prusov-code/json-yaml-comparator
+```
+### Standalone
+
+```bash
+$ git clone https://github.com/prusov-code/json-yaml-comparator.git
+
+$ cd json-yaml-comparator
+
+$ make install
+
+$ ./bin/compare /absolute/path/to/file/file1.json relative/path/to/file/file2.yaml
+```
+
+## Usage as a library
+```php
+require_once __DIR__.'/vendor/autoload.php';
+use function PrusovCode\JsonYamlComparator\compare;
+
+$pathToFile1='/absolute/path/to/file/file1.json'; # Absolute path
+$pathToFile1='relative/path/to/file/file2.yaml'; # Relative path
+$outputFormat='stylish'; # Available formats: stylish (default format), plain, json
+
+echo compare($pathToFile1,$pathToFile2,$outputFormat); 
+```
+
+## Usage examples
+### Compare two JSON files, stylish output
+[![asciicast](https://asciinema.org/a/6vAtWBmLfq6jPk7A4CpbpIgW3.svg)](https://asciinema.org/a/6vAtWBmLfq6jPk7A4CpbpIgW3)
+
+### Compare two YAML files, plain output
+[![asciicast](https://asciinema.org/a/aLn5d1aQzGuyCcI4HFRVhrtzL.svg)](https://asciinema.org/a/aLn5d1aQzGuyCcI4HFRVhrtzL)
+
+### Compare JSON and YAML files, json output
+[![asciicast](https://asciinema.org/a/Ivnc1o5VjFyjDmKg5G8hmzv6S.svg)](https://asciinema.org/a/Ivnc1o5VjFyjDmKg5G8hmzv6S)
