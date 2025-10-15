@@ -1,5 +1,5 @@
 {
-  "name": "PrusovCode/JsonYamlComparator",
+  "name": "prusov-code/json-yaml-comparator",
   "autoload": {
     "psr-4": {
       "PrusovCode\\JsonYamlComparator\\": "src/",
