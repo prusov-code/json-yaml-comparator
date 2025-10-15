@@ -8,7 +8,7 @@ use Hexlet\Code\Formatters\JsonFormatter;
 
 class Formatter
 {
-    public static function formatDiff(array $diff, string $outputFormat): string
+    public static function formatDiff(array $diff, string $outputFormat): string|false
     {
         $outputFormat = trim(mb_strtolower($outputFormat));
         switch ($outputFormat) {
