@@ -1,5 +1,7 @@
 {
   "name": "prusov-code/json-yaml-comparator",
+  "license": "MIT",
+  "keywords": ["json", "yaml", "comparator", "diff"],
   "autoload": {
     "psr-4": {
       "PrusovCode\\JsonYamlComparator\\": "src/",
