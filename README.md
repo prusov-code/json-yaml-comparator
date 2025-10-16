@@ -29,18 +29,18 @@ A powerful PHP library and command-line utility for comparing JSON and YAML file
 ## Installation
 ### Composer
 ```bash
-$ composer require prusov-code/json-yaml-comparator
+composer require prusov-code/json-yaml-comparator
 ```
 ### Standalone
 
 ```bash
-$ git clone https://github.com/prusov-code/json-yaml-comparator.git
+git clone https://github.com/prusov-code/json-yaml-comparator.git
 
-$ cd json-yaml-comparator
+cd json-yaml-comparator
 
-$ make install
+make install
 
-$ ./bin/compare /absolute/path/to/file/file1.json relative/path/to/file/file2.yaml
+./bin/compare /absolute/path/to/file/file1.json relative/path/to/file/file2.yaml
 ```
 
 ## Usage as a library
