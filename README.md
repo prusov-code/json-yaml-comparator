@@ -40,7 +40,7 @@ cd json-yaml-comparator
 
 make install
 
-./bin/compare /absolute/path/to/file/file1.json relative/path/to/file/file2.yaml
+./bin/compare files/file1_nested.json files/file2_nested.yml
 ```
 
 ## Usage as a library
