@@ -46,14 +46,14 @@ make install
 ## Usage as a library
 ```php
 # src/index.php
-require_once __DIR__.'/../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 use function PrusovCode\JsonYamlComparator\compare;
 
-$pathToFile1=__DIR__.'/../files/file1_nested.json'; # You can use absolute or relative path
-$pathToFile2=__DIR__.'/../files/file2_nested.yml';
-$outputFormat='stylish'; # Available formats: stylish (default format), plain, json
+$pathToFile1 = __DIR__ . '/../files/file1_nested.json'; # You can use absolute or relative path
+$pathToFile2 = __DIR__ . '/../files/file2_nested.yml';
+$outputFormat = 'stylish'; # Available formats: stylish (default format), plain, json
 
-echo compare($pathToFile1,$pathToFile2,$outputFormat); 
+echo compare($pathToFile1, $pathToFile2, $outputFormat);
 ```
 
 ## Usage examples
