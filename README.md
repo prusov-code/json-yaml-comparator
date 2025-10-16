@@ -48,8 +48,8 @@ make install
 require_once __DIR__.'/vendor/autoload.php';
 use function PrusovCode\JsonYamlComparator\compare;
 
-$pathToFile1='/absolute/path/to/file/file1.json'; # Absolute path
-$pathToFile1='relative/path/to/file/file2.yaml'; # Relative path
+$pathToFile1='files/file1_nested.json'; # You can use absolute or relative path
+$pathToFile1='files/file2_nested.yml';
 $outputFormat='stylish'; # Available formats: stylish (default format), plain, json
 
 echo compare($pathToFile1,$pathToFile2,$outputFormat); 
